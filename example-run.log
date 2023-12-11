@@ -1,0 +1,186 @@
+Notice	Execution started
+Info	Copying events...
+Info	  src ....... [REDACTED]
+Info	  dst ....... [REDACTED]
+Info	  max ....... 6h
+Info	  days ...... 14
+Info	  starting .. Mon Dec 11 2023 09:46:22 GMT-0800 (Pacific Standard Time)
+Info	  ending .... Mon Dec 25 2023 09:46:22 GMT-0800 (Pacific Standard Time)
+Info
+Info	Found 32 events.
+Info	  evt: Mon Dec 11 2023 10:00:00 GMT-0800 (Pacific Standard Time) for 1h
+Info	      Title ... [REDACTED] team meeting
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Mon Dec 11 2023 13:00:00 GMT-0800 (Pacific Standard Time) for 1h30m
+Info	      Title ... Busy
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Mon Dec 11 2023 13:00:00 GMT-0800 (Pacific Standard Time) for 40m
+Info	      Title ... Engineering Monday Meeting
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Mon Dec 11 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	      Title ... DNS: after work hours on east coast
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Mon Dec 11 2023 16:15:00 GMT-0800 (Pacific Standard Time) for 45m
+Info	      Title ... SRE Office Hours
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Deleting newly-declined event.
+Info	  evt: Tue Dec 12 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 3h
+Info	      Title ... 🥂 Year End Event
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Tue Dec 12 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 3h
+Info	      Title ... Holiday Event
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Tue Dec 12 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	      Title ... DNS: after work hours on east coast
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Wed Dec 13 2023 08:00:00 GMT-0800 (Pacific Standard Time) for 45m
+Info	      Title ... Mentor Circle
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Wed Dec 13 2023 13:00:00 GMT-0800 (Pacific Standard Time) for 1h
+Info	      Title ... 🔊🎶 Code Club
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Wed Dec 13 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	      Title ... DNS: after work hours on east coast
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Thu Dec 14 2023 10:00:00 GMT-0800 (Pacific Standard Time) for 1h
+Info	      Title ... Team Collaboration Session
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Thu Dec 14 2023 11:30:00 GMT-0800 (Pacific Standard Time) for 1h
+Info	      Title ... Senior Staff+ Panel
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Thu Dec 14 2023 12:30:00 GMT-0800 (Pacific Standard Time) for 30m
+Info	      Title ... 1:1
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Thu Dec 14 2023 14:00:00 GMT-0800 (Pacific Standard Time) for 1h
+Info	      Title ... Top 10 Presentations
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Thu Dec 14 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	      Title ... DNS: after work hours on east coast
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Thu Dec 14 2023 21:00:00 GMT-0800 (Pacific Standard Time) for 24h
+Info	      Title ... Innovation Day!
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping (too long)
+Info	  evt: Thu Dec 14 2023 21:00:00 GMT-0800 (Pacific Standard Time) for 408h
+Info	      Title ... OOO
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping (too long)
+Info	  evt: Fri Dec 15 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	      Title ... DNS: after work hours on east coast
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Mon Dec 18 2023 10:00:00 GMT-0800 (Pacific Standard Time) for 1h
+Info	      Title ... [REDACTED] team meeting
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Deleting newly-declined event.
+Info	  evt: Mon Dec 18 2023 13:00:00 GMT-0800 (Pacific Standard Time) for 1h30m
+Info	      Title ... Busy
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Mon Dec 18 2023 13:00:00 GMT-0800 (Pacific Standard Time) for 40m
+Info	      Title ... Engineering Monday Meeting
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Mon Dec 18 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	      Title ... DNS: after work hours on east coast
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Mon Dec 18 2023 16:15:00 GMT-0800 (Pacific Standard Time) for 45m
+Info	      Title ... SRE Office Hours
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Deleting newly-declined event.
+Info	  evt: Tue Dec 19 2023 10:30:00 GMT-0800 (Pacific Standard Time) for 30m
+Info	      Title ... 1:1
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Deleting newly-declined event.
+Info	  evt: Tue Dec 19 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	      Title ... DNS: after work hours on east coast
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Wed Dec 20 2023 09:00:00 GMT-0800 (Pacific Standard Time) for 30m
+Info	      Title ... Weekly Sales Enablement
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Deleting newly-declined event.
+Info	  evt: Wed Dec 20 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	      Title ... DNS: after work hours on east coast
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Thu Dec 21 2023 10:00:00 GMT-0800 (Pacific Standard Time) for 1h
+Info	      Title ... [REDACTED] Collaboration Session
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Deleting newly-declined event.
+Info	  evt: Thu Dec 21 2023 12:30:00 GMT-0800 (Pacific Standard Time) for 30m
+Info	      Title ... 1:1
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Deleting newly-declined event.
+Info	  evt: Thu Dec 21 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	      Title ... DNS: after work hours on east coast
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info	  evt: Fri Dec 22 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	      Title ... DNS: after work hours on east coast
+Info	      ID ...... [REDACTED]@google.com
+Info	    -> Skipping/Updating only (already exists)
+Info
+Info	Found 22 events to scan for removals.
+Info	  evt: Mon Dec 11 2023 10:00:00 GMT-0800 (Pacific Standard Time) for 1h
+Info	    -> Keeping.
+Info	  evt: Mon Dec 11 2023 13:00:00 GMT-0800 (Pacific Standard Time) for 40m
+Info	    -> Keeping.
+Info	  evt: Mon Dec 11 2023 13:00:00 GMT-0800 (Pacific Standard Time) for 1h30m
+Info	    -> Keeping.
+Info	  evt: Mon Dec 11 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	    -> Keeping.
+Info	  evt: Tue Dec 12 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 3h
+Info	    -> Keeping.
+Info	  evt: Tue Dec 12 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	    -> Keeping.
+Info	  evt: Wed Dec 13 2023 08:00:00 GMT-0800 (Pacific Standard Time) for 45m
+Info	    -> Keeping.
+Info	  evt: Wed Dec 13 2023 13:00:00 GMT-0800 (Pacific Standard Time) for 1h
+Info	    -> Keeping.
+Info	  evt: Wed Dec 13 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	    -> Keeping.
+Info	  evt: Thu Dec 14 2023 10:00:00 GMT-0800 (Pacific Standard Time) for 1h
+Info	    -> Keeping.
+Info	  evt: Thu Dec 14 2023 11:30:00 GMT-0800 (Pacific Standard Time) for 1h
+Info	    -> Keeping.
+Info	  evt: Thu Dec 14 2023 12:30:00 GMT-0800 (Pacific Standard Time) for 30m
+Info	    -> Keeping.
+Info	  evt: Thu Dec 14 2023 14:00:00 GMT-0800 (Pacific Standard Time) for 1h
+Info	    -> Keeping.
+Info	  evt: Thu Dec 14 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	    -> Keeping.
+Info	  evt: Fri Dec 15 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	    -> Keeping.
+Info	  evt: Mon Dec 18 2023 13:00:00 GMT-0800 (Pacific Standard Time) for 40m
+Info	    -> Keeping.
+Info	  evt: Mon Dec 18 2023 13:00:00 GMT-0800 (Pacific Standard Time) for 1h30m
+Info	    -> Keeping.
+Info	  evt: Mon Dec 18 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	    -> Keeping.
+Info	  evt: Tue Dec 19 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	    -> Keeping.
+Info	  evt: Wed Dec 20 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	    -> Keeping.
+Info	  evt: Thu Dec 21 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	    -> Keeping.
+Info	  evt: Fri Dec 22 2023 15:00:00 GMT-0800 (Pacific Standard Time) for 5h50m
+Info	    -> Keeping.
+Info	Done.
+Notice	Execution completed
