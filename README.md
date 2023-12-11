@@ -12,3 +12,17 @@ To preserve some semblance of corporate secrecy, the script does NOT copy the
 description, attendee list, location, video conference details, etc. It only
 copies the title and start/stop times.
 
+## Installation
+
+1. Go to <https://script.google.com> and create a new project.
+2. Set contents of `code.js` to that of `calcopy.js` from this repo.
+3. Update the `SRC_CAL_ID` to be your source calendar ID, e.g.
+   `you@corpo.com`.
+4. Update the `DST_CAL_ID` to the destination ID. I personally create a new
+   secondary calendar in my personal account called CorpCopy, which results in
+   an ID something like `bigrandomlettersandnumbers@goroup.calendar.google.com`
+5. Under the "Triggers" section, click "+ Add Trigger".
+   * function to run: `copyCalendar`
+   * event source: `time-driven` (using a `from calendar`/`calendar updated`
+     trigger might work, but I've never tried it)
+
