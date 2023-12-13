@@ -1,9 +1,16 @@
-var SRC_CAL_ID = '';                                    // account to copy events from (run the script in this account)
-var DST_CAL_ID = '';                                    // private calendar to copy into (owned by your personal Google account)
-var MAX_DURATION_MILLIS = 6 * 60 * 60 * 1000;           // events longer than this are not copied.
-var START_DATE = new Date();                            // new Date('2018-02-19T00:00:00.000Z');
-var NUM_DAYS = 14;                                      // number of day to look forward.
+var SRC_CAL_ID = '';                                                            // account to copy events from (run the script in this account)
+var DST_CAL_ID = '';                                                            // private calendar to copy into (owned by your personal Google account)
+var MAX_DURATION_MILLIS = 6 * 60 * 60 * 1000;                                   // events longer than this are not copied.
+var START_DATE = new Date();                                                    // new Date('2018-02-19T00:00:00.000Z');
+var NUM_DAYS = 14;                                                              // number of day to look forward.
 var END_DATE = new Date(START_DATE.valueOf() + (NUM_DAYS * 24 * 60 * 60 * 1000));
+
+// List of strings that if found at the start of an event prevents it from being synced.
+var blockedTitlePrefixes = [
+  "OOO",
+  "DNS",
+  "PTO",
+];
 
 function humanize(millis) {
   var secs = Math.floor(millis/1000);
@@ -23,6 +30,15 @@ function humanize(millis) {
   return res;
 }
 
+function isBlockedEntry(title) {
+  title = title.trim();
+  for (const x of blockedTitlePrefixes) {
+    if (title.startsWith(x)) {
+      return true;
+    }
+  }
+  return false;
+}
 
 // copyCalendar is the main entry point that should be triggered on a regular (e.g. hourly) basis.
 function copyCalendar() {
@@ -76,19 +92,27 @@ function copyCalendar() {
       }
     }
     if (foundEvt != null) {
+      // Handle updating (or removing) a previously synced entry.
       if (evt.getMyStatus() == CalendarApp.GuestStatus.NO) {
         Logger.log("    -> Deleting newly-declined event.");
         foundEvt.deleteEvent();
+      } else if (isBlockedEntry(title)) {
+        Logger.log("    -> Deleting new block-list matching event.");
+        foundEvt.deleteEvent();
       } else {
-        Logger.log("    -> Skipping/Updating only (already exists)");
+        Logger.log("    -> Skipping/Updating only (already exists).");
         foundEvt.setTitle(title);
       }
-    } else if (evt.getMyStatus() == GuestStatus.NO) {
-      Logger.log("    -> Skipping event that was declined on source calendar");
     } else {
-      Logger.log("    -> Adding");
-      var newevt = dst.createEvent(title, start, end);
-      updateStatus("      ", newevt, evt.getMyStatus());
+      // Handle new events.
+      if (evt.getMyStatus() == CalendarApp.GuestStatus.NO) {
+        Logger.log("    -> Skipping event that was declined on source calendar.");
+      } else if (isBlockedEntry(title)) {
+        Logger.log("    -> Skipping new event that has block-list match.");
+      } else {
+        Logger.log("    -> Adding new event.");
+        var newevt = dst.createEvent(title, start, end);
+      }
     }
   }
 
