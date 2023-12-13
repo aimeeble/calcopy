@@ -40,6 +40,12 @@ function isBlockedEntry(title) {
   return false;
 }
 
+function eventsMatch(evt1, evt2) {
+  var dur1 = evt1.getEndTime() - evt1.getStartTime();
+  var dur2 = evt2.getEndTime() - evt2.getStartTime();
+  return evt1.getStartTime().getTime() === evt2.getStartTime().getTime() && dur1 === dur2;
+}
+
 // copyCalendar is the main entry point that should be triggered on a regular (e.g. hourly) basis.
 function copyCalendar() {
   Logger.log("Copying events...");
@@ -62,50 +68,48 @@ function copyCalendar() {
   }
 
   // Add new events from source to dest calendar.
-  var evts = src.getEvents(START_DATE, END_DATE);
+  var srcEvents = src.getEvents(START_DATE, END_DATE);
   Logger.log("");
-  Logger.log("Found " + evts.length + " events.");
-  for (var i = 0; i < evts.length; i++) {
-    var evt = evts[i];
-    var start = evt.getStartTime();
-    var end = evt.getEndTime();
+  Logger.log("Found " + srcEvents.length + " events.");
+  for (var i = 0; i < srcEvents.length; i++) {
+    var srcEvent = srcEvents[i];
+    var start = srcEvent.getStartTime();
+    var end = srcEvent.getEndTime();
     var duration = end - start;
-    var title = evt.getTitle();
+    var title = srcEvent.getTitle();
 
     Logger.log("  evt: " + start + " for " + humanize(duration));
     Logger.log("      Title ... " + title);
-    Logger.log("      ID ...... " + evt.getId());
+    Logger.log("      ID ...... " + srcEvent.getId());
 
     if (duration > MAX_DURATION_MILLIS) {
       Logger.log("    -> Skipping (too long)");
       continue;
     }
 
-    var existingEvts = dst.getEvents(start, end);
-    var foundEvt = null;
-    for (var j = 0; j < existingEvts.length; j++) {
-      var existingEvt = existingEvts[j];
-      var existingDur = existingEvt.getEndTime() - existingEvt.getStartTime();
-      if (existingEvt.getStartTime().getTime() === evt.getStartTime().getTime() && duration === existingDur) {
-        foundEvt = existingEvt;
+    var dstEvents = dst.getEvents(start, end);
+    var existingEvent = null;
+    for (var j = 0; j < dstEvents.length; j++) {
+      if (eventsMatch(srcEvent, dstEvents[j])) {
+        existingEvent = dstEvents[j];
         break;
       }
     }
-    if (foundEvt != null) {
+    if (existingEvent != null) {
       // Handle updating (or removing) a previously synced entry.
-      if (evt.getMyStatus() == CalendarApp.GuestStatus.NO) {
+      if (srcEvent.getMyStatus() == CalendarApp.GuestStatus.NO) {
         Logger.log("    -> Deleting newly-declined event.");
-        foundEvt.deleteEvent();
+        existingEvent.deleteEvent();
       } else if (isBlockedEntry(title)) {
         Logger.log("    -> Deleting new block-list matching event.");
-        foundEvt.deleteEvent();
+        existingEvent.deleteEvent();
       } else {
         Logger.log("    -> Skipping/Updating only (already exists).");
-        foundEvt.setTitle(title);
+        existingEvent.setTitle(title);
       }
     } else {
       // Handle new events.
-      if (evt.getMyStatus() == CalendarApp.GuestStatus.NO) {
+      if (srcEvent.getMyStatus() == CalendarApp.GuestStatus.NO) {
         Logger.log("    -> Skipping event that was declined on source calendar.");
       } else if (isBlockedEntry(title)) {
         Logger.log("    -> Skipping new event that has block-list match.");
@@ -116,24 +120,22 @@ function copyCalendar() {
     }
   }
 
-  // Remove/mod any removed events in dest calendar no longer in source.
-  evts = dst.getEvents(START_DATE, END_DATE);
+  // Remove any events no longer in source calendar.
+  existingEvents = dst.getEvents(START_DATE, END_DATE);
   Logger.log("");
-  Logger.log("Found " + evts.length + " events to scan for removals.");
-  for (var i = 0; i < evts.length; i++) {
-    var evt = evts[i];
-    var start = evt.getStartTime();
-    var end = evt.getEndTime();
+  Logger.log("Found " + existingEvents.length + " events to scan for removals.");
+  for (var i = 0; i < existingEvents.length; i++) {
+    var existingEvent = existingEvents[i];
+    var start = existingEvent.getStartTime();
+    var end = existingEvent.getEndTime();
     var duration = end - start;
 
     Logger.log("  evt: " + start + " for " + humanize(duration));
 
-    var existingEvts = src.getEvents(start, end);
+    var srcEvents = src.getEvents(start, end);
     var found = false;
-    for (var j = 0; j < existingEvts.length; j++) {
-      var existingEvt = existingEvts[j];
-      var existingDur = existingEvt.getEndTime() - existingEvt.getStartTime();
-      if (existingEvt.getStartTime().getTime() === evt.getStartTime().getTime() && duration === existingDur) {
+    for (var j = 0; j < srcEvents.length; j++) {
+      if (eventsMatch(existingEvent, srcEvents[j])) {
         found = true;
         break;
       }
@@ -145,6 +147,7 @@ function copyCalendar() {
       evt.deleteEvent();
     }
   }
+
   Logger.log("Done.");
 }
 
