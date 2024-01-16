@@ -144,7 +144,7 @@ function copyCalendar() {
       Logger.log("    -> Keeping.");
     } else {
       Logger.log("    -> Removing (no longer in src)");
-      evt.deleteEvent();
+      existingEvent.deleteEvent();
     }
   }
 
